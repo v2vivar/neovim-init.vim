@@ -3,6 +3,8 @@
 """ Vim-Plug
 call plug#begin()
 
+" Plug 'donRaphaco/neotex'
+
 " Aesthetics - Main
 Plug 'dracula/vim', { 'commit': '147f389f4275cec4ef43ebc25e2011c57b45cc00' }
 Plug 'vim-airline/vim-airline'
@@ -50,10 +52,25 @@ Plug 'dkarter/bullets.vim'
 
 " Entertainment
 "Plug 'ryanss/vim-hackernews'
+" vimtex plugin
+Plug 'lervag/vimtex'
+Plug 'Konfekt/FastFold'
+Plug 'matze/vim-tex-fold'
 
 call plug#end()
 
-""" Python3 VirtualEnv
+" set pdf viewr for vimtex
+" install 'sudo apt-get install vim-remote and texlive: https://tug.org/texlive/quickinstall.html
+" install zathura or supported pdf viewer
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_compiler_progname = 'nvr'
+
+let g:tex_flavor  = 'latex'
+let g:tex_conceal = ''
+let g:vimtex_fold_manual = 1
+let g:vimtex_latexmk_continuous = 1
+
+"" Python3 VirtualEnv
 let g:python3_host_prog = expand('~/.config/nvim/env/bin/python')
 
 """ Coloring
@@ -233,4 +250,27 @@ autocmd FileType python nmap <leader>x :0,$!~/.config/nvim/env/bin/python -m yap
 nmap <silent> <leader><leader> :noh<CR>
 nmap <Tab> :bnext<CR>
 nmap <S-Tab> :bprevious<CR>
+imap jj <Esc>
+
+" " Copy to clipboard
+vnoremap  <leader>y  "+y
+nnoremap  <leader>Y  "+yg_
+nnoremap  <leader>y  "+y
+nnoremap  <leader>yy  "+yy
+
+" " Paste from clipboard
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
+
+" " Move between split windows
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" " Map Ctrl+Tab for moving between the buffers.
+nnoremap <C-Tab> <C-w>w
+
 
