@@ -273,4 +273,5 @@ nnoremap <C-H> <C-W><C-H>
 " " Map Ctrl+Tab for moving between the buffers.
 nnoremap <C-Tab> <C-w>w
 
-
+" " Set color colum at 80
+set colorcolumn=80
